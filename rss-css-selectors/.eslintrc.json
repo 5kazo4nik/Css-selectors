@@ -43,9 +43,8 @@
     "@typescript-eslint/lines-between-class-members": "off",
     "no-console": "warn",
     "prefer-destructuring": "warn"
-  },
-
-  "eslintConfig": {
-    "ignorePatterns": ["webpack.config.js"]
   }
+  // "eslintConfig": {
+  //   "ignorePatterns": ["webpack.config.js"]
+  // },
 }

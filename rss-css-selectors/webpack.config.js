@@ -29,7 +29,7 @@ module.exports = (env, options) => {
       ignored: /node_modules/,
     },
     optimization: optimization(),
-    entry: './src/index.ts',
+    entry: './src/scripts/index.ts',
     output: {
       path: path.resolve(__dirname, '../dist'),
       filename: `./scripts/${filename('js')}`,
@@ -59,6 +59,13 @@ module.exports = (env, options) => {
           type: 'asset/resource',
           generator: {
             filename: `./img/${filename('[ext]')}`,
+          },
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: `./fonts/${filename('[ext]')}`,
           },
         },
       ],

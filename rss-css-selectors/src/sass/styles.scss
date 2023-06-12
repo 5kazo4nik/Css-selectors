@@ -1,0 +1,20 @@
+@import './base/normalize';
+
+// abstract
+@import './abstract/_placeholders.scss';
+
+// base
+@import './base/base';
+@import './base/things';
+@import './base/burger';
+@import './base/statuses';
+
+//components
+@import './components/table';
+@import './components/input-view';
+@import './components/progress';
+
+// layout
+@import './layout/left.scss';
+@import './layout/header';
+@import './layout/footer';

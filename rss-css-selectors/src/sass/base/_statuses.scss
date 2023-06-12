@@ -1,0 +1,36 @@
+.move {
+  @extend %move;
+}
+
+.shake {
+  @extend %shake;
+}
+
+.enter {
+  @extend %enter;
+}
+
+.fancy::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: calc(50% - 47px);
+  top: calc(50% - 44px);
+  height: 68px;
+  width: 74px;
+  border-radius: 60px;
+  border: solid 10px #009ff2;
+  opacity: 0.4;
+}
+
+.hovered {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-hovered] {
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+plate [data-hovered] {
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.3);
+}
