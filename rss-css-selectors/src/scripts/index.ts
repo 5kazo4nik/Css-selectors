@@ -1,10 +1,4 @@
 import '../sass/styles.scss';
+import { setBurgerListener } from './burger';
 
-console.log('hello');
-
-const a = 5;
-const b = 10;
-
-console.log(a + b);
-
-// const c = a + b;
+setBurgerListener();
