@@ -5,12 +5,12 @@ const LEVEL1: ILevel = {
     {
       tag: 'plate',
       status: ['move'],
-      textOpen: '&lt;plate /&gt;',
+      textOpen: '<plate />',
     },
     {
       tag: 'plate',
       status: ['move'],
-      textOpen: '&lt;plate /&gt;',
+      textOpen: '<plate />',
     },
   ],
   answer: 'plate',
@@ -21,16 +21,16 @@ const LEVEL2: ILevel = {
     {
       tag: 'bento',
       status: ['move'],
-      textOpen: '&lt;bento /&gt;',
+      textOpen: '<bento />',
     },
     {
       tag: 'plate',
-      textOpen: '&lt;plate /&gt;',
+      textOpen: '<plate />',
     },
     {
       tag: 'bento',
       status: ['move'],
-      textOpen: '&lt;bento /&gt;',
+      textOpen: '<bento />',
     },
   ],
   answer: 'bento',
@@ -41,15 +41,15 @@ const LEVEL3: ILevel = {
     {
       tag: 'plate',
       status: ['move', 'fancy'],
-      textOpen: '&lt;plate class="fancy" /&gt;',
+      textOpen: '<plate class="fancy" />',
     },
     {
       tag: 'plate',
-      textOpen: '&lt;plate /&gt;',
+      textOpen: '<plate />',
     },
     {
       tag: 'bento',
-      textOpen: '&lt;bento /&gt;',
+      textOpen: '<bento />',
     },
   ],
   answer: '.fancy',
@@ -59,7 +59,7 @@ const LEVEL4: ILevel = {
   item: [
     {
       tag: 'bento',
-      textOpen: '&lt;bento /&gt;',
+      textOpen: '<bento />',
     },
     {
       tag: 'plate',
@@ -67,15 +67,15 @@ const LEVEL4: ILevel = {
         {
           tag: 'apple',
           status: ['move'],
-          textOpen: '&lt;apple /&gt;',
+          textOpen: '<apple />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'apple',
-      textOpen: '&lt;apple /&gt;',
+      textOpen: '<apple />',
     },
   ],
   answer: 'plate apple',
@@ -88,11 +88,11 @@ const LEVEL5: ILevel = {
       innerItem: [
         {
           tag: 'orange',
-          textOpen: '&lt;apple /&gt;',
+          textOpen: '<apple />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'plate',
@@ -101,22 +101,22 @@ const LEVEL5: ILevel = {
         {
           tag: 'pickle',
           status: ['move'],
-          textOpen: '&lt;pickle /&gt;',
+          textOpen: '<pickle />',
         },
       ],
-      textOpen: '&lt;plate class="fancy"&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate class="fancy">',
+      textClose: '</plate>',
     },
     {
       tag: 'plate',
       innerItem: [
         {
           tag: 'pickle',
-          textOpen: '&lt;pickle&gt;',
+          textOpen: '<pickle>',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
   ],
   answer: '.fancy pickle',
@@ -126,12 +126,12 @@ const LEVEL6: ILevel = {
   item: [
     {
       tag: 'apple',
-      textOpen: '&lt;apple /&gt;',
+      textOpen: '<apple />',
     },
     {
       tag: 'apple',
       status: ['small', 'move'],
-      textOpen: '&lt;apple class="small" /&gt;',
+      textOpen: '<apple class="small" />',
     },
     {
       tag: 'plate',
@@ -139,16 +139,16 @@ const LEVEL6: ILevel = {
         {
           tag: 'apple',
           status: ['move', 'small'],
-          textOpen: '&lt;apple class="small" /&gt;',
+          textOpen: '<apple class="small" />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'plate',
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
   ],
   answer: '.small',
@@ -158,12 +158,12 @@ const LEVEL7: ILevel = {
   item: [
     {
       tag: 'apple',
-      textOpen: '&lt;apple /&gt;',
+      textOpen: '<apple />',
     },
     {
       tag: 'apple',
       status: ['small'],
-      textOpen: '&lt;apple class="small" /&gt;',
+      textOpen: '<apple class="small" />',
     },
     {
       tag: 'bento',
@@ -171,22 +171,22 @@ const LEVEL7: ILevel = {
         {
           tag: 'orange',
           status: ['move', 'small'],
-          textOpen: '&lt;orange class="small" /&gt;',
+          textOpen: '<orange class="small" />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'plate',
       innerItem: [
         {
           tag: 'orange',
-          textOpen: '&lt;orange /&gt;',
+          textOpen: '<orange />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'plate',
@@ -194,11 +194,11 @@ const LEVEL7: ILevel = {
         {
           tag: 'orange',
           status: ['move', 'small'],
-          textOpen: '&lt;orange class="small" /&gt;',
+          textOpen: '<orange class="small" />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
   ],
   answer: 'orange.small',
@@ -211,16 +211,16 @@ const LEVEL8: ILevel = {
       innerItem: [
         {
           tag: 'orange',
-          textOpen: '&lt;orange /&gt;',
+          textOpen: '<orange />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'orange',
       status: ['small'],
-      textOpen: '&lt;orange class="small" /&gt;',
+      textOpen: '<orange class="small" />',
     },
     {
       tag: 'bento',
@@ -228,11 +228,11 @@ const LEVEL8: ILevel = {
         {
           tag: 'orange',
           status: ['move', 'small'],
-          textOpen: '&lt;orange class="small" /&gt;',
+          textOpen: '<orange class="small" />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'bento',
@@ -240,11 +240,11 @@ const LEVEL8: ILevel = {
         {
           tag: 'apple',
           status: ['small'],
-          textOpen: '&lt;apple class="small" /&gt;',
+          textOpen: '<apple class="small" />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'bento',
@@ -252,11 +252,11 @@ const LEVEL8: ILevel = {
         {
           tag: 'orange',
           status: ['move', 'small'],
-          textOpen: '&lt;orange class="small" /&gt;',
+          textOpen: '<orange class="small" />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
   ],
   answer: 'bento orange.small',
@@ -267,11 +267,11 @@ const LEVEL9: ILevel = {
     {
       tag: 'pickle',
       status: ['small'],
-      textOpen: '&lt;pickle class="small" /&gt;',
+      textOpen: '<pickle class="small" />',
     },
     {
       tag: 'pickle',
-      textOpen: '&lt;pickle /&gt;',
+      textOpen: '<pickle />',
     },
     {
       tag: 'plate',
@@ -279,11 +279,11 @@ const LEVEL9: ILevel = {
       innerItem: [
         {
           tag: 'pickle',
-          textOpen: '&lt;pickle /&gt;',
+          textOpen: '<pickle />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'bento',
@@ -291,11 +291,11 @@ const LEVEL9: ILevel = {
       innerItem: [
         {
           tag: 'pickle',
-          textOpen: '&lt;pickle /&gt;',
+          textOpen: '<pickle />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'plate',
@@ -303,20 +303,20 @@ const LEVEL9: ILevel = {
       innerItem: [
         {
           tag: 'pickle',
-          textOpen: '&lt;pickle /&gt;',
+          textOpen: '<pickle />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'pickle',
-      textOpen: '&lt;pickle /&gt;',
+      textOpen: '<pickle />',
     },
     {
       tag: 'pickle',
       status: ['small'],
-      textOpen: '&lt;pickle class="small" /&gt;',
+      textOpen: '<pickle class="small" />',
     },
   ],
   answer: 'bento, plate',
@@ -327,7 +327,7 @@ const LEVEL10: ILevel = {
     {
       tag: 'apple',
       status: ['move'],
-      textOpen: '&lt;apple /&gt;',
+      textOpen: '<apple />',
     },
     {
       tag: 'plate',
@@ -336,17 +336,17 @@ const LEVEL10: ILevel = {
         {
           tag: 'orange',
           status: ['small'],
-          textOpen: '&lt;orange class="small" /&gt;',
+          textOpen: '<orange class="small" />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'bento',
       status: ['move'],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'bento',
@@ -354,17 +354,17 @@ const LEVEL10: ILevel = {
       innerItem: [
         {
           tag: 'orange',
-          textOpen: '&lt;orange /&gt;',
+          textOpen: '<orange />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'plate',
       status: ['move', 'fancy'],
-      textOpen: '&lt;plate class="fancy"&gt;',
-      textClose: '&lt; &gt;',
+      textOpen: '<plate class="fancy">',
+      textClose: '< >',
     },
   ],
   answer: '*',
@@ -379,11 +379,11 @@ const LEVEL11: ILevel = {
         {
           tag: 'orange',
           status: ['move', 'small'],
-          textOpen: '&lt;orange class="small" /&gt;',
+          textOpen: '<orange class="small" />',
         },
       ],
-      textOpen: '&lt;plate class="fancy"&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate class="fancy">',
+      textClose: '</plate>',
     },
     {
       tag: 'plate',
@@ -391,16 +391,16 @@ const LEVEL11: ILevel = {
         {
           tag: 'pickle',
           status: ['move'],
-          textOpen: '&lt;pickle /&gt;',
+          textOpen: '<pickle />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'apple',
       status: ['small'],
-      textOpen: '&lt;apple /&gt;',
+      textOpen: '<apple />',
     },
     {
       tag: 'plate',
@@ -408,11 +408,11 @@ const LEVEL11: ILevel = {
         {
           tag: 'apple',
           status: ['move'],
-          textOpen: '&lt;apple /&gt;',
+          textOpen: '<apple />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
   ],
   answer: 'plate *',
@@ -426,41 +426,41 @@ const LEVEL12: ILevel = {
         {
           tag: 'apple',
           status: ['small'],
-          textOpen: '&lt;apple class="small" /&gt;',
+          textOpen: '<apple class="small" />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'plate',
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'apple',
       status: ['move', 'small'],
-      textOpen: '&lt;apple class="small" /&gt;',
+      textOpen: '<apple class="small" />',
     },
     {
       tag: 'plate',
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;plate&gt;',
+      textOpen: '<plate>',
+      textClose: '<plate>',
     },
     {
       tag: 'apple',
       status: ['move'],
-      textOpen: '&lt;apple /&gt;',
+      textOpen: '<apple />',
     },
     {
       tag: 'apple',
       status: ['small'],
-      textOpen: '&lt;apple class="small" /&gt;',
+      textOpen: '<apple class="small" />',
     },
     {
       tag: 'apple',
       status: ['small'],
-      textOpen: '&lt;apple class="small" /&gt;',
+      textOpen: '<apple class="small" />',
     },
   ],
   answer: 'plate + apple',
@@ -470,7 +470,7 @@ const LEVEL13: ILevel = {
   item: [
     {
       tag: 'pickle',
-      textOpen: '&lt;pickle /&gt;',
+      textOpen: '<pickle />',
     },
     {
       tag: 'bento',
@@ -478,32 +478,32 @@ const LEVEL13: ILevel = {
         {
           tag: 'orange',
           status: ['small'],
-          textOpen: '&lt;orange class="small" /&gt;',
+          textOpen: '<orange class="small" />',
         },
       ],
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'pickle',
       status: ['move', 'small'],
-      textOpen: '&lt;pickle class="small" /&gt;',
+      textOpen: '<pickle class="small" />',
     },
     {
       tag: 'pickle',
       status: ['move'],
-      textOpen: '&lt;pickle /&gt;',
+      textOpen: '<pickle />',
     },
     {
       tag: 'plate',
       innerItem: [
         {
           tag: 'pickle',
-          textOpen: '&lt;pickle /&gt;',
+          textOpen: '<pickle />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'plate',
@@ -511,11 +511,11 @@ const LEVEL13: ILevel = {
         {
           tag: 'pickle',
           status: ['small'],
-          textOpen: '&lt;pickle class="small" /&gt;',
+          textOpen: '<pickle class="small" />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
   ],
   answer: 'pickle ~ pickle',
@@ -531,15 +531,15 @@ const LEVEL14: ILevel = {
           innerItem: [
             {
               tag: 'apple',
-              textOpen: '&lt;apple /&gt;',
+              textOpen: '<apple />',
             },
           ],
-          textOpen: '&lt;bento&gt;',
-          textClose: '&lt;/bento&gt;',
+          textOpen: '<bento>',
+          textClose: '</bento>',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'plate',
@@ -547,25 +547,25 @@ const LEVEL14: ILevel = {
         {
           tag: 'apple',
           status: ['move'],
-          textOpen: '&lt;apple /&gt;',
+          textOpen: '<apple />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'plate',
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'apple',
-      textOpen: '&lt;apple /&gt;',
+      textOpen: '<apple />',
     },
     {
       tag: 'apple',
       status: ['small'],
-      textOpen: '&lt;apple class="small" /&gt;',
+      textOpen: '<apple class="small" />',
     },
   ],
   answer: 'plate > apple',
@@ -575,38 +575,38 @@ const LEVEL15: ILevel = {
   item: [
     {
       tag: 'bento',
-      textOpen: '&lt;bento&gt;',
-      textClose: '&lt;/bento&gt;',
+      textOpen: '<bento>',
+      textClose: '</bento>',
     },
     {
       tag: 'plate',
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'plate',
       innerItem: [
         {
           tag: 'orange',
-          textOpen: '&lt;orange /&gt;',
+          textOpen: '<orange />',
         },
         {
           tag: 'orange',
-          textOpen: '&lt;orange /&gt;',
+          textOpen: '<orange />',
         },
         {
           tag: 'orange',
           status: ['move'],
-          textOpen: '&lt;orange /&gt;',
+          textOpen: '<orange />',
         },
       ],
-      textOpen: '&lt;plate&gt;',
-      textClose: '&lt;/plate&gt;',
+      textOpen: '<plate>',
+      textClose: '</plate>',
     },
     {
       tag: 'pickle',
       status: ['small'],
-      textOpen: '&lt;pickle class="small" /&gt;',
+      textOpen: '<pickle class="small" />',
     },
   ],
   answer: 'orange:first-child',

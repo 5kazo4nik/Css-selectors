@@ -1,7 +1,8 @@
+// Data Levels types
 type Tag = 'plate' | 'bento' | 'apple' | 'orange' | 'pickle';
 type Status = 'small' | 'move' | 'fancy';
 
-interface ILevelItem {
+export interface ILevelItem {
   readonly tag: Tag;
   readonly status?: Status[];
   readonly innerItem?: ILevelItem[];
