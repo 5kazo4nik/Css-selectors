@@ -5,6 +5,7 @@ import { LEVELS } from '../data/levels';
 export class LevelView {
   private levels = LEVELS;
   private curLevel = Number(localStorage.getItem('curLevel')) || 0;
+  private levelElements = Array.from(document.querySelectorAll('.level'));
   constructor() {
     this.buildLevel();
     this.bindEvents();
@@ -22,6 +23,7 @@ export class LevelView {
       field.innerHTML = '';
       CodeElementCreator.appendInnerElements(field, this.levels[this.curLevel].item);
     }
+    this.setCurLevelStyle();
   }
 
   private bindEvents(): void {
@@ -29,20 +31,34 @@ export class LevelView {
     window.addEventListener('beforeunload', this.saveLevel.bind(this));
   }
 
-  private setCurLevel(num: number = this.curLevel + 1): void {
+  public setCurLevel(num: number = this.curLevel + 1): void {
     this.curLevel = num;
     this.buildLevel();
   }
 
-  private clickListner(e: Event): void {
-    const levelElements = Array.from(document.querySelectorAll('.level'));
+  public getCurLevel(): number {
+    return this.curLevel;
+  }
 
+  public getLevelsList(): Element[] {
+    return this.levelElements;
+  }
+
+  private clickListner(e: Event): void {
     if (e.target instanceof Element) {
       if (e.target.classList.contains('level')) {
-        const pickedLevel: number = levelElements.indexOf(e.target);
+        const pickedLevel: number = this.levelElements.indexOf(e.target);
         this.setCurLevel(pickedLevel);
       }
     }
+  }
+
+  private setCurLevelStyle(): void {
+    this.levelElements.forEach((elem) => {
+      elem.classList.remove('level_current');
+    });
+    const levelElem = this.levelElements[this.curLevel];
+    levelElem.classList.add('level_current');
   }
 
   private saveLevel(): void {

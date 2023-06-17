@@ -588,15 +588,15 @@ const LEVEL15: ILevel = {
       innerItem: [
         {
           tag: 'orange',
-          textOpen: '<orange />',
-        },
-        {
-          tag: 'orange',
-          textOpen: '<orange />',
-        },
-        {
-          tag: 'orange',
           status: ['move'],
+          textOpen: '<orange />',
+        },
+        {
+          tag: 'orange',
+          textOpen: '<orange />',
+        },
+        {
+          tag: 'orange',
           textOpen: '<orange />',
         },
       ],

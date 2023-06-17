@@ -10,6 +10,10 @@
   @extend %enter;
 }
 
+.clean {
+  @extend %clean;
+}
+
 .fancy::after {
   content: '';
   display: block;
