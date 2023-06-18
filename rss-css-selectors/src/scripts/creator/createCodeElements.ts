@@ -3,6 +3,7 @@ import { ElementCreator } from './abstractCreator';
 
 export class CodeElementCreator extends ElementCreator {
   private code: HTMLElement;
+  private static elementsArr: HTMLElement[];
 
   constructor(private readonly item: ILevelItem) {
     super();
@@ -27,9 +28,10 @@ export class CodeElementCreator extends ElementCreator {
     }
   }
 
-  protected static createInnerElements(parent: HTMLElement | Element, childs: ILevelItem[]): void {
+  private static createInnerElements(parent: HTMLElement | Element, childs: ILevelItem[]): void {
     childs.forEach((item) => {
       const elem = new CodeElementCreator(item).getElement();
+      CodeElementCreator.elementsArr.push(elem);
       parent.append(elem);
     });
   }
@@ -45,5 +47,13 @@ export class CodeElementCreator extends ElementCreator {
 
   public getElement(): HTMLElement {
     return this.code;
+  }
+
+  public static getElementsArr(): HTMLElement[] {
+    return CodeElementCreator.elementsArr;
+  }
+
+  public static resetElemetsArr(): void {
+    CodeElementCreator.elementsArr = [];
   }
 }

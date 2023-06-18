@@ -27,14 +27,14 @@
   opacity: 0.4;
 }
 
-.hovered {
+.field__view .hovered {
   color: rgba(255, 255, 255, 0.7);
 }
 
-[data-hovered] {
+.table__surface .hovered {
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4);
 }
 
-plate [data-hovered] {
+.table__surface plate .hovered {
   box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.3);
 }

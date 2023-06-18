@@ -1,11 +1,14 @@
 import { CodeElementCreator } from '../creator/createCodeElements';
 import { TableElementCreator } from '../creator/createTableElements';
 import { LEVELS } from '../data/levels';
+import { HoveredElemView } from './hoveredElemView';
 
 export class LevelView {
   private levels = LEVELS;
   private curLevel = Number(localStorage.getItem('curLevel')) || 0;
   private levelElements = Array.from(document.querySelectorAll('.level'));
+  private HoveredView = new HoveredElemView([], []);
+
   constructor() {
     this.buildLevel();
     this.bindEvents();
@@ -14,14 +17,16 @@ export class LevelView {
   public buildLevel(): void {
     const table = document.querySelector('.table__surface');
     if (table) {
-      table.innerHTML = '';
+      LevelView.resetLvl(table, TableElementCreator.resetElemetsArr);
       TableElementCreator.appendInnerElements(table, this.levels[this.curLevel].item);
+      this.HoveredView.updateTableElems(TableElementCreator.getElementsArr());
     }
 
     const field = document.querySelector('.field__view');
     if (field) {
-      field.innerHTML = '';
+      LevelView.resetLvl(field, CodeElementCreator.resetElemetsArr);
       CodeElementCreator.appendInnerElements(field, this.levels[this.curLevel].item);
+      this.HoveredView.updateCodeElems(CodeElementCreator.getElementsArr());
     }
     this.setCurLevelStyle();
   }
@@ -63,5 +68,11 @@ export class LevelView {
 
   private saveLevel(): void {
     localStorage.setItem('curLevel', String(this.curLevel));
+  }
+
+  private static resetLvl(elem: Element, resetElemFunc: () => void): void {
+    const element = elem;
+    element.innerHTML = '';
+    resetElemFunc();
   }
 }

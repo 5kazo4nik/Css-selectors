@@ -3,6 +3,7 @@ import { ElementCreator } from './abstractCreator';
 
 export class TableElementCreator extends ElementCreator {
   private element: HTMLElement;
+  private static elementsArr: HTMLElement[];
 
   constructor(private readonly item: ILevelItem) {
     super();
@@ -33,11 +34,20 @@ export class TableElementCreator extends ElementCreator {
   public static appendInnerElements(parent: HTMLElement | Element, childItems: ILevelItem[]): void {
     childItems.forEach((item) => {
       const elem = new TableElementCreator(item).getElement();
+      TableElementCreator.elementsArr.push(elem);
       parent.append(elem);
     });
   }
 
   public getElement(): HTMLElement {
     return this.element;
+  }
+
+  public static getElementsArr(): HTMLElement[] {
+    return TableElementCreator.elementsArr;
+  }
+
+  public static resetElemetsArr(): void {
+    TableElementCreator.elementsArr = [];
   }
 }

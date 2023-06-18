@@ -1,4 +1,4 @@
-import { LevelView } from '../levelSelect/levelView';
+import { LevelView } from '../view/levelView';
 
 export class InputEnter {
   private inputView = document.querySelector('.input-view');
