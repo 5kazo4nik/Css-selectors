@@ -335,7 +335,7 @@ const LEVEL10: ILevel = {
       innerItem: [
         {
           tag: 'orange',
-          status: ['small'],
+          status: ['small', 'move'],
           textOpen: '<orange class="small" />',
         },
       ],
@@ -354,6 +354,7 @@ const LEVEL10: ILevel = {
       innerItem: [
         {
           tag: 'orange',
+          status: ['move'],
           textOpen: '<orange />',
         },
       ],

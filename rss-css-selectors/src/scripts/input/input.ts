@@ -3,8 +3,16 @@ import { LevelView } from '../view/levelView';
 export class InputEnter {
   private inputView = document.querySelector('.input-view');
   private inputBtn = document.querySelector('.field__btn');
+  private completedLevels: number[];
 
   constructor(private levelView: LevelView) {
+    const completedLevels = localStorage.getItem('completedLevels');
+    if (completedLevels) {
+      this.completedLevels = JSON.parse(completedLevels);
+    } else {
+      this.completedLevels = [];
+    }
+    this.setCompletedLevels();
     this.bindEvents();
   }
 
@@ -20,20 +28,31 @@ export class InputEnter {
     }
     if (input instanceof HTMLInputElement && this.inputView) {
       this.inputView.addEventListener('mouseup', () => {
-        InputEnter.setActiveInput.bind(this, input)();
+        InputEnter.focusInput.bind(this, input)();
       });
     }
+
+    window.addEventListener('beforeunload', this.saveCompletedLevels.bind(this));
   }
 
   private submitListner(): void {
     const input = document.querySelector('.field__input');
     if (!(input instanceof HTMLInputElement)) return;
     const { value } = input;
-    const isWin = this.setWinOrLoseSelector(value);
-    if (isWin) input.value = '';
+    const isWin = this.defineWinOrLoseSelector(value);
+    const isFinished = this.checkGameFinish();
+
+    if (isWin) {
+      input.value = '';
+      if (isFinished) {
+        setTimeout(() => {
+          LevelView.finishGame();
+        }, 1000);
+      }
+    }
   }
 
-  private setWinOrLoseSelector(selector: string): boolean {
+  private defineWinOrLoseSelector(selector: string): boolean {
     const table = document.querySelector('.table__surface');
     if (!table) return false;
     const existElems = InputEnter.getExistElem(selector, table);
@@ -53,6 +72,10 @@ export class InputEnter {
     const curListLevel = listLevels[curLevel];
     curListLevel.classList.add('level_completed');
     InputEnter.setAnimationTimeout(existElems, 'clean', 1000);
+
+    this.completedLevels.push(curLevel);
+    const levelsSet = new Set(this.completedLevels);
+    this.completedLevels = Array.from(levelsSet);
 
     setTimeout(() => {
       this.levelView.setCurLevel();
@@ -89,7 +112,29 @@ export class InputEnter {
     return Array.from(table.querySelectorAll(selector));
   }
 
-  private static setActiveInput(input: HTMLInputElement): void {
+  private setCompletedLevels(): void {
+    const listLevels = this.levelView.getLevelsList();
+    this.completedLevels.forEach((lvl) => listLevels[lvl].classList.add('level_completed'));
+  }
+
+  private saveCompletedLevels(): void {
+    const stringifiedLevels = JSON.stringify(this.completedLevels);
+    localStorage.setItem('completedLevels', stringifiedLevels);
+  }
+
+  public checkGameFinish(): boolean {
+    const listLevels = this.levelView.getLevelsList();
+    if (listLevels.length === this.completedLevels.length) return true;
+    return false;
+  }
+
+  public resetCompledLevels(): void {
+    const listLevels = this.levelView.getLevelsList();
+    listLevels.forEach((lvl) => lvl.classList.remove('level_completed'));
+    this.completedLevels = [];
+  }
+
+  private static focusInput(input: HTMLInputElement): void {
     input.focus();
   }
 }

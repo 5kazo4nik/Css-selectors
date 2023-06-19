@@ -1,7 +1,6 @@
 type Callback = (elems: Element[], tableItem: HTMLElement, helperText: string) => void;
 
 export class HoveredElemView {
-  // eslint-disable-next-line max-len
   constructor(private tableElements: Element[], private codeElements: Element[]) {
     this.bindEvents();
   }

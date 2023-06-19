@@ -3,6 +3,11 @@ import { TableElementCreator } from '../creator/createTableElements';
 import { LEVELS } from '../data/levels';
 import { HoveredElemView } from './hoveredElemView';
 
+enum WinText {
+  HEAD = 'Congratulations!',
+  TEXT = 'You have completed all the tasks',
+}
+
 export class LevelView {
   private levels = LEVELS;
   private curLevel = Number(localStorage.getItem('curLevel')) || 0;
@@ -37,7 +42,8 @@ export class LevelView {
   }
 
   public setCurLevel(num: number = this.curLevel + 1): void {
-    this.curLevel = num;
+    const totalLevels = this.levelElements.length - 1;
+    this.curLevel = num > totalLevels ? totalLevels : num;
     this.buildLevel();
   }
 
@@ -74,5 +80,21 @@ export class LevelView {
     const element = elem;
     element.innerHTML = '';
     resetElemFunc();
+  }
+
+  public static finishGame(): void {
+    const table = document.querySelector('.table__surface');
+    if (table) {
+      table.innerHTML = '';
+      const winElem = document.createElement('div');
+      winElem.classList.add('winner');
+      const winHead = document.createElement('div');
+      const winText = document.createElement('div');
+      winHead.textContent = WinText.HEAD;
+      winText.textContent = WinText.TEXT;
+
+      winElem.append(winHead, winText);
+      table.append(winElem);
+    }
   }
 }
