@@ -4,16 +4,21 @@ export class InputEnter {
   private inputView = document.querySelector('.input-view');
   private inputBtn = document.querySelector('.field__btn');
   private completedLevels: number[];
+  private helpedLevels: number[];
 
   constructor(private levelView: LevelView) {
-    const completedLevels = localStorage.getItem('completedLevels');
-    if (completedLevels) {
-      this.completedLevels = JSON.parse(completedLevels);
-    } else {
-      this.completedLevels = [];
-    }
-    this.setCompletedLevels();
+    this.completedLevels = InputEnter.initLevel('completedLevels');
+    this.helpedLevels = InputEnter.initLevel('helpedLevels');
+    this.setLevelsStatus();
     this.bindEvents();
+  }
+
+  private static initLevel(name: string): number[] {
+    const level = localStorage.getItem(name);
+    if (level) {
+      return JSON.parse(level);
+    }
+    return [];
   }
 
   private bindEvents(): void {
@@ -32,7 +37,7 @@ export class InputEnter {
       });
     }
 
-    window.addEventListener('beforeunload', this.saveCompletedLevels.bind(this));
+    window.addEventListener('beforeunload', this.saveLevels.bind(this));
   }
 
   private submitListner(): void {
@@ -112,14 +117,17 @@ export class InputEnter {
     return Array.from(table.querySelectorAll(selector));
   }
 
-  private setCompletedLevels(): void {
+  private setLevelsStatus(): void {
     const listLevels = this.levelView.getLevelsList();
     this.completedLevels.forEach((lvl) => listLevels[lvl].classList.add('level_completed'));
+    this.helpedLevels.forEach((lvl) => listLevels[lvl].classList.add('level_helped'));
   }
 
-  private saveCompletedLevels(): void {
-    const stringifiedLevels = JSON.stringify(this.completedLevels);
-    localStorage.setItem('completedLevels', stringifiedLevels);
+  private saveLevels(): void {
+    const completedLevels = JSON.stringify(this.completedLevels);
+    localStorage.setItem('completedLevels', completedLevels);
+    const helpedLevels = JSON.stringify(this.helpedLevels);
+    localStorage.setItem('helpedLevels', helpedLevels);
   }
 
   public checkGameFinish(): boolean {
@@ -128,10 +136,22 @@ export class InputEnter {
     return false;
   }
 
-  public resetCompledLevels(): void {
+  public resetLevels(): void {
     const listLevels = this.levelView.getLevelsList();
-    listLevels.forEach((lvl) => lvl.classList.remove('level_completed'));
+    listLevels.forEach((lvl) => {
+      lvl.classList.remove('level_completed');
+      lvl.classList.remove('level_helped');
+    });
     this.completedLevels = [];
+    this.helpedLevels = [];
+  }
+
+  public addHelpedLevel(num: number): void {
+    this.helpedLevels.push(num);
+    const levelsSet = new Set(this.helpedLevels);
+    this.helpedLevels = Array.from(levelsSet);
+    const listLevels = this.levelView.getLevelsList();
+    this.helpedLevels.forEach((lvl) => listLevels[lvl].classList.add('level_helped'));
   }
 
   private static focusInput(input: HTMLInputElement): void {

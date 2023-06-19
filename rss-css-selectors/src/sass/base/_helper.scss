@@ -14,3 +14,18 @@
   outline: solid 1px transparent;
   white-space: nowrap;
 }
+
+.help-btn {
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.3);
+  padding: 8px 15px 10px 15px;
+  border-radius: 20px;
+  width: fit-content;
+  margin: 10px auto 20px auto;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.help-btn:hover {
+  text-decoration: underline;
+}

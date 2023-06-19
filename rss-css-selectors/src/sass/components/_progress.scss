@@ -64,6 +64,18 @@
     border: solid 3px #4cbb4a;
     border-width: 0 3px 3px 0;
   }
+
+  &_helped .level__check {
+    opacity: 0.55;
+    border: solid 3px #ff0000;
+    border-width: 0 3px 3px 0;
+  }
+
+  &_completed.level_helped .level__check {
+    opacity: 0.55;
+    border: solid 3px #91ff00;
+    border-width: 0 3px 3px 0;
+  }
 }
 
 .level__check {
