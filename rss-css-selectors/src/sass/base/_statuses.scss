@@ -30,6 +30,9 @@
 .field__view .hovered {
   color: rgba(255, 255, 255, 0.7);
 }
+.field__view .hovered span {
+  color: rgb(23, 35, 206);
+}
 
 .table__surface .hovered {
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4);

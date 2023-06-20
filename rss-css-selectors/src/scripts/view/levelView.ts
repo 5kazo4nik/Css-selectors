@@ -20,6 +20,8 @@ export class LevelView {
   }
 
   public buildLevel(): void {
+    LevelView.setHighlightScript();
+
     const table = document.querySelector('.table__surface');
     if (table) {
       LevelView.resetLvl(table, TableElementCreator.resetElemetsArr);
@@ -39,6 +41,15 @@ export class LevelView {
   private bindEvents(): void {
     document.addEventListener('click', this.clickListner.bind(this));
     window.addEventListener('beforeunload', this.saveLevel.bind(this));
+  }
+
+  private static setHighlightScript(): void {
+    const oldScript = document.querySelector('.light-script');
+    if (oldScript) oldScript.remove();
+    const script = document.createElement('script');
+    script.classList.add('.light-script');
+    script.src = 'https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sons-of-obsidian';
+    document.body.append(script);
   }
 
   public setCurLevel(num: number = this.curLevel + 1): void {

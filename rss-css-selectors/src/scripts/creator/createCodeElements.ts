@@ -17,14 +17,16 @@ export class CodeElementCreator extends ElementCreator {
   }
 
   protected addStatus(): void {
-    this.code.textContent = `${this.item.textOpen}\n`;
+    const codeElem = CodeElementCreator.getHighlitedCode(`${this.item.textOpen}\n`);
+    this.code.append(codeElem);
   }
 
   protected appendElem(parent: HTMLElement): void {
     const { innerItem, textClose } = this.item;
     if (innerItem && textClose) {
       CodeElementCreator.createInnerElements(parent, innerItem);
-      parent.append(`\n${textClose}`);
+      const codeElem = CodeElementCreator.getHighlitedCode(`\n${textClose}`);
+      parent.append(codeElem);
     }
   }
 
@@ -39,10 +41,22 @@ export class CodeElementCreator extends ElementCreator {
   public static appendInnerElements(parent: HTMLElement | Element, childItems: ILevelItem[]): void {
     const field = document.createElement('div');
     field.classList.add('field__layout');
-    field.textContent = '<div class="table>\n';
+
+    const preOpen = CodeElementCreator.getHighlitedCode('<div class="table>\n');
+    field.append(preOpen);
+
     CodeElementCreator.createInnerElements(field, childItems);
-    field.append('\n</div>');
+
+    const preClose = CodeElementCreator.getHighlitedCode('</div>');
+    field.append(preClose);
     parent.append(field);
+  }
+
+  private static getHighlitedCode(text: string): Element {
+    const code = document.createElement('code');
+    code.append(text);
+    code.classList.add('prettyprint');
+    return code;
   }
 
   public getElement(): HTMLElement {

@@ -15,9 +15,7 @@ export class InputEnter {
 
   private static initLevel(name: string): number[] {
     const level = localStorage.getItem(name);
-    if (level) {
-      return JSON.parse(level);
-    }
+    if (level) return JSON.parse(level);
     return [];
   }
 
@@ -55,6 +53,7 @@ export class InputEnter {
         }, 1000);
       }
     }
+    if (this.inputBtn) InputEnter.setAnimationTimeout(this.inputBtn, 'enter', 100);
   }
 
   private defineWinOrLoseSelector(selector: string): boolean {
@@ -93,7 +92,6 @@ export class InputEnter {
     } else if (this.inputView) {
       InputEnter.setAnimationTimeout(this.inputView, 'shake', 500);
     }
-    if (this.inputBtn) InputEnter.setAnimationTimeout(this.inputBtn, 'enter', 100);
   }
 
   private static setAnimationTimeout(elem: Element[] | Element, anim: string, time: number): void {
