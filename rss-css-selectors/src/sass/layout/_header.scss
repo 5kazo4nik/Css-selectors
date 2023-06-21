@@ -12,14 +12,14 @@
   top: 11px;
 }
 
-.header__logo plate {
+.header__logo dish {
   position: absolute;
   margin: 0;
 }
 
 .header__logo:hover {
   opacity: 0.8;
-  plate {
+  dish {
     @extend %move;
   }
 }

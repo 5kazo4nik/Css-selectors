@@ -3,12 +3,13 @@ import { ILevel } from './types';
 const LEVEL1: ILevel = {
   item: [
     {
-      tag: 'plate',
+      tag: 'dish',
       status: ['move'],
+      id: 'fancy',
       textOpen: '<plate />',
     },
     {
-      tag: 'plate',
+      tag: 'dish',
       status: ['move'],
       textOpen: '<plate />',
     },
@@ -19,7 +20,7 @@ const LEVEL1: ILevel = {
 const LEVEL2: ILevel = {
   item: [
     {
-      tag: 'bento',
+      tag: 'board',
       status: ['move'],
       textOpen: '<bento />',
     },
@@ -28,7 +29,7 @@ const LEVEL2: ILevel = {
       textOpen: '<plate />',
     },
     {
-      tag: 'bento',
+      tag: 'board',
       status: ['move'],
       textOpen: '<bento />',
     },
@@ -62,10 +63,11 @@ const LEVEL4: ILevel = {
       textOpen: '<bento />',
     },
     {
-      tag: 'plate',
+      tag: 'dish',
+      id: 'fancy',
       innerItem: [
         {
-          tag: 'apple',
+          tag: 'peper',
           status: ['move'],
           textOpen: '<apple />',
         },
@@ -74,7 +76,7 @@ const LEVEL4: ILevel = {
       textClose: '</plate>',
     },
     {
-      tag: 'apple',
+      tag: 'zucchini',
       textOpen: '<apple />',
     },
   ],
@@ -95,12 +97,12 @@ const LEVEL5: ILevel = {
       textClose: '</bento>',
     },
     {
-      tag: 'plate',
-      status: ['fancy'],
+      tag: 'dish',
+      // status: ['fancy'],
       innerItem: [
         {
-          tag: 'pickle',
-          status: ['move'],
+          tag: 'zucchini',
+          status: ['move', 'small'],
           textOpen: '<pickle />',
         },
       ],
@@ -218,7 +220,7 @@ const LEVEL8: ILevel = {
       textClose: '</bento>',
     },
     {
-      tag: 'orange',
+      tag: 'peper',
       status: ['small'],
       textOpen: '<orange class="small" />',
     },
@@ -525,13 +527,13 @@ const LEVEL13: ILevel = {
 const LEVEL14: ILevel = {
   item: [
     {
-      tag: 'plate',
+      tag: 'board',
       innerItem: [
         {
-          tag: 'bento',
+          tag: 'dish',
           innerItem: [
             {
-              tag: 'apple',
+              tag: 'coconut',
               textOpen: '<apple />',
             },
           ],

@@ -13,6 +13,8 @@ export class TableElementCreator extends ElementCreator {
 
   protected buildElement(): void {
     this.element = this.addStatus(this.element);
+    const { id } = this.item;
+    if (id) this.element.id = id;
     this.appendElem();
   }
 

@@ -5,6 +5,7 @@ type Status = 'small' | 'move' | 'fancy';
 export interface ILevelItem {
   readonly tag: Tag;
   readonly status?: Status[];
+  readonly id?: string;
   readonly innerItem?: ILevelItem[];
   readonly textOpen: string;
   readonly textClose?: string;
