@@ -3,64 +3,80 @@ import { ILevel } from './types';
 const LEVEL1: ILevel = {
   item: [
     {
-      tag: 'dish',
+      tag: 'board',
       status: ['move'],
-      id: 'fancy',
-      textOpen: '<plate />',
+      textOpen: '<board />',
     },
     {
-      tag: 'dish',
+      tag: 'board',
       status: ['move'],
-      textOpen: '<plate />',
+      textOpen: '<board />',
     },
   ],
-  answer: 'plate',
+  answer: 'board',
 };
 
 const LEVEL2: ILevel = {
   item: [
     {
-      tag: 'board',
-      status: ['move'],
-      textOpen: '<bento />',
-    },
-    {
-      tag: 'plate',
-      textOpen: '<plate />',
+      tag: 'dish',
+      textOpen: '<dish />',
     },
     {
       tag: 'board',
-      status: ['move'],
-      textOpen: '<bento />',
+      innerItem: [
+        {
+          tag: 'dish',
+          status: ['move'],
+          id: 'fancy',
+          textOpen: '<dish id="fancy" />',
+        },
+      ],
+      textOpen: '<board>',
+      textClose: '</board>',
     },
   ],
-  answer: 'bento',
+  answer: '#fancy',
 };
 
 const LEVEL3: ILevel = {
   item: [
     {
-      tag: 'plate',
-      status: ['move', 'fancy'],
-      textOpen: '<plate class="fancy" />',
+      tag: 'dish',
+      textOpen: '<dish">',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'coconut',
+          status: ['move'],
+          textOpen: '<coconut />',
+        },
+      ],
     },
     {
-      tag: 'plate',
-      textOpen: '<plate />',
+      tag: 'board',
+      textOpen: '<board>',
+      textClose: '</board>',
+      innerItem: [
+        {
+          tag: 'coconut',
+          textOpen: '<coconut />',
+        },
+      ],
     },
     {
-      tag: 'bento',
-      textOpen: '<bento />',
+      tag: 'zucchini',
+      textOpen: '<zucchini />',
     },
   ],
-  answer: '.fancy',
+  answer: 'dish coconut',
 };
 
 const LEVEL4: ILevel = {
   item: [
     {
-      tag: 'bento',
-      textOpen: '<bento />',
+      tag: 'board',
+      textOpen: '<board />',
     },
     {
       tag: 'dish',
@@ -69,550 +85,669 @@ const LEVEL4: ILevel = {
         {
           tag: 'peper',
           status: ['move'],
-          textOpen: '<apple />',
+          textOpen: '<peper />',
         },
       ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
+      textOpen: '<dish id="fancy">',
+      textClose: '</dish>',
+    },
+    {
+      tag: 'dish',
+      innerItem: [
+        {
+          tag: 'peper',
+          textOpen: '<peper />',
+        },
+      ],
+      textOpen: '<dish>',
+      textClose: '</dish>',
     },
     {
       tag: 'zucchini',
-      textOpen: '<apple />',
+      textOpen: '<zucchini />',
     },
   ],
-  answer: 'plate apple',
+  answer: '#fancy peper',
 };
 
 const LEVEL5: ILevel = {
   item: [
     {
-      tag: 'bento',
+      tag: 'board',
       innerItem: [
         {
-          tag: 'orange',
-          textOpen: '<apple />',
+          tag: 'zucchini',
+          textOpen: '<zucchini />',
         },
       ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
+      textOpen: '<board>',
+      textClose: '</board>',
     },
     {
       tag: 'dish',
-      // status: ['fancy'],
+      id: 'fancy',
       innerItem: [
         {
           tag: 'zucchini',
           status: ['move', 'small'],
-          textOpen: '<pickle />',
+          textOpen: '<zucchini class="small" />',
         },
       ],
-      textOpen: '<plate class="fancy">',
-      textClose: '</plate>',
+      textOpen: '<dish id="fancy">',
+      textClose: '</dish>',
     },
     {
-      tag: 'plate',
+      tag: 'dish',
       innerItem: [
         {
-          tag: 'pickle',
-          textOpen: '<pickle>',
+          tag: 'zucchini',
+          textOpen: '</zucchini>',
         },
       ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-  ],
-  answer: '.fancy pickle',
-};
-
-const LEVEL6: ILevel = {
-  item: [
-    {
-      tag: 'apple',
-      textOpen: '<apple />',
+      textOpen: '<dish>',
+      textClose: '</dish>',
     },
     {
-      tag: 'apple',
-      status: ['small', 'move'],
-      textOpen: '<apple class="small" />',
-    },
-    {
-      tag: 'plate',
+      tag: 'dish',
       innerItem: [
         {
-          tag: 'apple',
+          tag: 'zucchini',
           status: ['move', 'small'],
-          textOpen: '<apple class="small" />',
+          textOpen: '<zucchini class="small" />',
         },
       ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-    {
-      tag: 'plate',
-      textOpen: '<plate>',
-      textClose: '</plate>',
+      textOpen: '<dish>',
+      textClose: '</dish>',
     },
   ],
   answer: '.small',
 };
 
+const LEVEL6: ILevel = {
+  item: [
+    {
+      tag: 'coconut',
+      textOpen: '<coconut />',
+    },
+    {
+      tag: 'peper',
+      status: ['small'],
+      textOpen: '<peper class="small" />',
+    },
+    {
+      tag: 'dish',
+      id: 'fancy',
+      innerItem: [
+        {
+          tag: 'coconut',
+          status: ['move', 'small'],
+          textOpen: '<coconut class="small" />',
+        },
+      ],
+      textOpen: '<dish id="fancy">',
+      textClose: '</dish>',
+    },
+    {
+      tag: 'dish',
+      innerItem: [
+        {
+          tag: 'coconut',
+          status: ['small'],
+          textOpen: '<coconut class="small" />',
+        },
+      ],
+      textOpen: '<dish>',
+      textClose: '</dish>',
+    },
+  ],
+  answer: '#fancy .small',
+};
+
 const LEVEL7: ILevel = {
   item: [
     {
-      tag: 'apple',
-      textOpen: '<apple />',
-    },
-    {
-      tag: 'apple',
-      status: ['small'],
-      textOpen: '<apple class="small" />',
-    },
-    {
-      tag: 'bento',
+      tag: 'dish',
       innerItem: [
         {
-          tag: 'orange',
-          status: ['move', 'small'],
-          textOpen: '<orange class="small" />',
+          tag: 'coconut',
+          status: ['small'],
+          textOpen: '<coconut class="small" />',
         },
       ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
+      textOpen: '<dish>',
+      textClose: '</dish>',
     },
     {
-      tag: 'plate',
-      innerItem: [
-        {
-          tag: 'orange',
-          textOpen: '<orange />',
-        },
-      ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
+      tag: 'zucchini',
+      textOpen: '<zucchini />',
     },
     {
-      tag: 'plate',
+      tag: 'zucchini',
+      status: ['move', 'small'],
+      textOpen: '<zucchini class="small" />',
+    },
+    {
+      tag: 'dish',
       innerItem: [
         {
-          tag: 'orange',
-          status: ['move', 'small'],
-          textOpen: '<orange class="small" />',
+          tag: 'zucchini',
+          textOpen: '<zucchini />',
         },
       ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
+      textOpen: '<dish>',
+      textClose: '</dish>',
+    },
+    {
+      tag: 'board',
+      textOpen: '<board>',
+      textClose: '</board>',
+      innerItem: [
+        {
+          tag: 'dish',
+          textOpen: '<dish>',
+          textClose: '</dish>',
+          innerItem: [{ tag: 'zucchini', status: ['move', 'small'], textOpen: '<zucchini class="small" />' }],
+        },
+      ],
     },
   ],
-  answer: 'orange.small',
+  answer: 'zucchini.small',
 };
 
 const LEVEL8: ILevel = {
   item: [
     {
-      tag: 'bento',
+      tag: 'board',
+      status: ['move'],
+      textOpen: '<board class="move">',
+      textClose: '</board>',
       innerItem: [
         {
-          tag: 'orange',
-          textOpen: '<orange />',
+          tag: 'peper',
+          textOpen: '<peper />',
         },
       ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
     },
     {
       tag: 'peper',
       status: ['small'],
-      textOpen: '<orange class="small" />',
+      textOpen: '<peper class="small" />',
     },
     {
-      tag: 'bento',
+      tag: 'dish',
+      id: 'fancy',
       innerItem: [
         {
-          tag: 'orange',
-          status: ['move', 'small'],
-          textOpen: '<orange class="small" />',
-        },
-      ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
-    },
-    {
-      tag: 'bento',
-      innerItem: [
-        {
-          tag: 'apple',
+          tag: 'zucchini',
           status: ['small'],
-          textOpen: '<apple class="small" />',
+          textOpen: '<zucchini class="small" />',
         },
       ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
+      textOpen: '<dish id="fancy">',
+      textClose: '</dish>',
     },
     {
-      tag: 'bento',
+      tag: 'dish',
       innerItem: [
         {
-          tag: 'orange',
-          status: ['move', 'small'],
-          textOpen: '<orange class="small" />',
+          tag: 'zucchini',
+          textOpen: '<zucchini />',
         },
       ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
+      textOpen: '<dish>',
+      textClose: '</dish>',
+    },
+    {
+      tag: 'coconut',
+      status: ['move'],
+      textOpen: '<coconut>',
+    },
+    {
+      tag: 'dish',
+      textOpen: '<dish>',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'coconut',
+          status: ['small', 'move'],
+          textOpen: '<coconut class="small" />',
+        },
+      ],
     },
   ],
-  answer: 'bento orange.small',
+  answer: 'board, coconut',
 };
 
 const LEVEL9: ILevel = {
   item: [
     {
-      tag: 'pickle',
-      status: ['small'],
-      textOpen: '<pickle class="small" />',
+      tag: 'zucchini',
+      status: ['small', 'move'],
+      textOpen: '<zucchini class="small" />',
     },
     {
-      tag: 'pickle',
-      textOpen: '<pickle />',
+      tag: 'dish',
+      id: 'fancy',
+      status: ['move'],
+      textOpen: '<dish id="fancy" />',
     },
     {
-      tag: 'plate',
+      tag: 'board',
       status: ['move'],
       innerItem: [
         {
-          tag: 'pickle',
-          textOpen: '<pickle />',
-        },
-      ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-    {
-      tag: 'bento',
-      status: ['move'],
-      innerItem: [
-        {
-          tag: 'pickle',
-          textOpen: '<pickle />',
-        },
-      ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
-    },
-    {
-      tag: 'plate',
-      status: ['move'],
-      innerItem: [
-        {
-          tag: 'pickle',
-          textOpen: '<pickle />',
-        },
-      ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-    {
-      tag: 'pickle',
-      textOpen: '<pickle />',
-    },
-    {
-      tag: 'pickle',
-      status: ['small'],
-      textOpen: '<pickle class="small" />',
-    },
-  ],
-  answer: 'bento, plate',
-};
-
-const LEVEL10: ILevel = {
-  item: [
-    {
-      tag: 'apple',
-      status: ['move'],
-      textOpen: '<apple />',
-    },
-    {
-      tag: 'plate',
-      status: ['move'],
-      innerItem: [
-        {
-          tag: 'orange',
-          status: ['small', 'move'],
-          textOpen: '<orange class="small" />',
-        },
-      ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-    {
-      tag: 'bento',
-      status: ['move'],
-      textOpen: '<bento>',
-      textClose: '</bento>',
-    },
-    {
-      tag: 'bento',
-      status: ['move'],
-      innerItem: [
-        {
-          tag: 'orange',
+          tag: 'dish',
           status: ['move'],
-          textOpen: '<orange />',
+          textOpen: '<dish>',
+          textClose: '<dish/>',
+          innerItem: [{ tag: 'peper', status: ['move'], textOpen: '<peper/>' }],
         },
       ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
+      textOpen: '<board>',
+      textClose: '</board>',
     },
     {
-      tag: 'plate',
-      status: ['move', 'fancy'],
-      textOpen: '<plate class="fancy">',
-      textClose: '< >',
+      tag: 'dish',
+      status: ['move'],
+      innerItem: [
+        {
+          tag: 'coconut',
+          status: ['move', 'small'],
+          textOpen: '<coconut class="small" />',
+        },
+        {
+          tag: 'coconut',
+          status: ['move', 'small'],
+          textOpen: '<coconut class="small" />',
+        },
+      ],
+      textOpen: '<dish>',
+      textClose: '</dish>',
+    },
+    {
+      tag: 'dish',
+      status: ['move'],
+      textOpen: '<dish />',
+    },
+    {
+      tag: 'coconut',
+      status: ['move'],
+      textOpen: '<coconut />',
+    },
+    {
+      tag: 'zucchini',
+      status: ['move'],
+      textOpen: '<zucchini />',
     },
   ],
   answer: '*',
 };
 
+const LEVEL10: ILevel = {
+  item: [
+    {
+      tag: 'board',
+      innerItem: [
+        {
+          tag: 'peper',
+          status: ['small'],
+          textOpen: '<peper class="small" />',
+        },
+      ],
+      textOpen: '<board>',
+      textClose: '</board>',
+    },
+    {
+      tag: 'zucchini',
+      status: ['move'],
+      textOpen: '<zucchini />',
+    },
+    {
+      tag: 'dish',
+      textOpen: '<dish>',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'zucchini',
+          textOpen: '<zucchini />',
+        },
+      ],
+    },
+    {
+      tag: 'board',
+      innerItem: [
+        {
+          tag: 'dish',
+          textOpen: '<dish />',
+        },
+      ],
+      textOpen: '<board>',
+      textClose: '</board>',
+    },
+    {
+      tag: 'coconut',
+      status: ['move'],
+      textOpen: '<coconut />',
+    },
+  ],
+  answer: 'board + *',
+};
+
 const LEVEL11: ILevel = {
   item: [
     {
-      tag: 'plate',
-      status: ['fancy'],
+      tag: 'dish',
+      id: 'fancy',
       innerItem: [
         {
-          tag: 'orange',
-          status: ['move', 'small'],
-          textOpen: '<orange class="small" />',
+          tag: 'peper',
+          textOpen: '<peper />',
         },
       ],
-      textOpen: '<plate class="fancy">',
-      textClose: '</plate>',
+      textOpen: '<dish id="fancy">',
+      textClose: '</dish>',
     },
     {
-      tag: 'plate',
+      tag: 'board',
       innerItem: [
         {
-          tag: 'pickle',
-          status: ['move'],
-          textOpen: '<pickle />',
+          tag: 'zucchini',
+          textOpen: '<zucchini />',
         },
       ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
+      textOpen: '<board>',
+      textClose: '</board>',
     },
     {
-      tag: 'apple',
-      status: ['small'],
-      textOpen: '<apple />',
+      tag: 'peper',
+      status: ['small', 'move'],
+      textOpen: '<peper class="small" />',
     },
     {
-      tag: 'plate',
+      tag: 'dish',
       innerItem: [
         {
-          tag: 'apple',
-          status: ['move'],
-          textOpen: '<apple />',
+          tag: 'peper',
+          textOpen: '<peper />',
         },
       ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
+      textOpen: '<dish>',
+      textClose: '</dish>',
+    },
+    {
+      tag: 'peper',
+      status: ['move'],
+      textOpen: '<peper />',
     },
   ],
-  answer: 'plate *',
+  answer: 'board ~ peper',
 };
 
 const LEVEL12: ILevel = {
-  item: [
-    {
-      tag: 'bento',
-      innerItem: [
-        {
-          tag: 'apple',
-          status: ['small'],
-          textOpen: '<apple class="small" />',
-        },
-      ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
-    },
-    {
-      tag: 'plate',
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-    {
-      tag: 'apple',
-      status: ['move', 'small'],
-      textOpen: '<apple class="small" />',
-    },
-    {
-      tag: 'plate',
-      textOpen: '<plate>',
-      textClose: '<plate>',
-    },
-    {
-      tag: 'apple',
-      status: ['move'],
-      textOpen: '<apple />',
-    },
-    {
-      tag: 'apple',
-      status: ['small'],
-      textOpen: '<apple class="small" />',
-    },
-    {
-      tag: 'apple',
-      status: ['small'],
-      textOpen: '<apple class="small" />',
-    },
-  ],
-  answer: 'plate + apple',
-};
-
-const LEVEL13: ILevel = {
-  item: [
-    {
-      tag: 'pickle',
-      textOpen: '<pickle />',
-    },
-    {
-      tag: 'bento',
-      innerItem: [
-        {
-          tag: 'orange',
-          status: ['small'],
-          textOpen: '<orange class="small" />',
-        },
-      ],
-      textOpen: '<bento>',
-      textClose: '</bento>',
-    },
-    {
-      tag: 'pickle',
-      status: ['move', 'small'],
-      textOpen: '<pickle class="small" />',
-    },
-    {
-      tag: 'pickle',
-      status: ['move'],
-      textOpen: '<pickle />',
-    },
-    {
-      tag: 'plate',
-      innerItem: [
-        {
-          tag: 'pickle',
-          textOpen: '<pickle />',
-        },
-      ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-    {
-      tag: 'plate',
-      innerItem: [
-        {
-          tag: 'pickle',
-          status: ['small'],
-          textOpen: '<pickle class="small" />',
-        },
-      ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-  ],
-  answer: 'pickle ~ pickle',
-};
-
-const LEVEL14: ILevel = {
   item: [
     {
       tag: 'board',
       innerItem: [
         {
           tag: 'dish',
+          textOpen: '<dish>',
+          textClose: '</dish>',
           innerItem: [
             {
               tag: 'coconut',
-              textOpen: '<apple />',
+              status: ['move'],
+              textOpen: '<coconut />',
             },
           ],
-          textOpen: '<bento>',
-          textClose: '</bento>',
         },
       ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
+      textOpen: '<board>',
+      textClose: '</board>',
     },
     {
-      tag: 'plate',
+      tag: 'dish',
+      textOpen: '<dish>',
+      textClose: '</dish>',
+    },
+    {
+      tag: 'coconut',
+      status: ['small'],
+      textOpen: '<coconut class="small" />',
+    },
+    {
+      tag: 'coconut',
+      textOpen: '<coconut />',
+    },
+    {
+      tag: 'dish',
+      textOpen: '<dish>',
+      textClose: '<dish/>',
       innerItem: [
         {
-          tag: 'apple',
-          status: ['move'],
-          textOpen: '<apple />',
+          tag: 'coconut',
+          status: ['move', 'small'],
+          textOpen: '<coconut />',
         },
       ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
     },
     {
-      tag: 'plate',
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-    {
-      tag: 'apple',
-      textOpen: '<apple />',
-    },
-    {
-      tag: 'apple',
-      status: ['small'],
-      textOpen: '<apple class="small" />',
+      tag: 'board',
+      textOpen: '<board>',
+      textClose: '<board/>',
+      innerItem: [
+        {
+          tag: 'coconut',
+          textOpen: '<coconut />',
+        },
+      ],
     },
   ],
-  answer: 'plate > apple',
+  answer: 'dish > coconut',
+};
+
+const LEVEL13: ILevel = {
+  item: [
+    {
+      tag: 'zucchini',
+      textOpen: '<zucchini />',
+    },
+    {
+      tag: 'board',
+      innerItem: [
+        {
+          tag: 'coconut',
+          status: ['move'],
+          textOpen: '<coconut />',
+        },
+        {
+          tag: 'coconut',
+          textOpen: '<coconut />',
+        },
+        {
+          tag: 'coconut',
+          textOpen: '<coconut />',
+        },
+      ],
+      textOpen: '<board>',
+      textClose: '</board>',
+    },
+    {
+      tag: 'peper',
+      status: ['small'],
+      textOpen: '<peper class="small" />',
+    },
+    {
+      tag: 'coconut',
+      textOpen: '<coconut />',
+    },
+    {
+      tag: 'dish',
+      innerItem: [
+        {
+          tag: 'coconut',
+          status: ['small', 'move'],
+          textOpen: '<coconut class="small" />',
+        },
+        {
+          tag: 'coconut',
+          status: ['small'],
+          textOpen: '<coconut class="small" />',
+        },
+      ],
+      textOpen: '<dish>',
+      textClose: '</dish>',
+    },
+    {
+      tag: 'dish',
+      id: 'fancy',
+      textOpen: '<dish id="fancy">',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'coconut',
+          status: ['small', 'move'],
+          textOpen: '<coconut class="small" />',
+        },
+        {
+          tag: 'coconut',
+          status: ['small'],
+          textOpen: '<coconut class="small" />',
+        },
+        {
+          tag: 'coconut',
+          status: ['small'],
+          textOpen: '<coconut class="small" />',
+        },
+      ],
+    },
+  ],
+  answer: 'board coconut:first-child, dish coconut:first-child',
+};
+
+const LEVEL14: ILevel = {
+  item: [
+    {
+      tag: 'dish',
+      textOpen: '<dish>',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'zucchini',
+          textOpen: '<zucchini />',
+        },
+      ],
+    },
+    {
+      tag: 'dish',
+      id: 'fancy',
+      textOpen: '<dish id="fancy">',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'coconut',
+          status: ['move', 'small'],
+          textOpen: '<coconut class="small" />',
+        },
+      ],
+    },
+    {
+      tag: 'dish',
+      id: 'fancy',
+      textOpen: '<dish>',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'coconut',
+          textOpen: '<coconut />',
+        },
+        {
+          tag: 'coconut',
+          textOpen: '<coconut />',
+        },
+      ],
+    },
+    {
+      tag: 'dish',
+      id: 'fancy',
+      textOpen: '<dish id="fancy">',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'zucchini',
+          status: ['move'],
+          textOpen: '<zucchini />',
+        },
+      ],
+    },
+    {
+      tag: 'dish',
+      textOpen: '<dish>',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'coconut',
+          textOpen: '<coconut />',
+        },
+      ],
+    },
+  ],
+  answer: '#fancy *:only-child',
 };
 
 const LEVEL15: ILevel = {
   item: [
     {
-      tag: 'bento',
-      textOpen: '<bento>',
-      textClose: '</bento>',
+      tag: 'peper',
+      textOpen: '<peper />',
     },
     {
-      tag: 'plate',
-      textOpen: '<plate>',
-      textClose: '</plate>',
-    },
-    {
-      tag: 'plate',
+      tag: 'dish',
+      textOpen: '<dish>',
+      textClose: '</dish>',
       innerItem: [
         {
-          tag: 'orange',
-          status: ['move'],
-          textOpen: '<orange />',
-        },
-        {
-          tag: 'orange',
-          textOpen: '<orange />',
-        },
-        {
-          tag: 'orange',
-          textOpen: '<orange />',
+          tag: 'peper',
+          status: ['move', 'small'],
+          textOpen: '<coconut />',
         },
       ],
-      textOpen: '<plate>',
-      textClose: '</plate>',
     },
     {
-      tag: 'pickle',
-      status: ['small'],
-      textOpen: '<pickle class="small" />',
+      tag: 'board',
+      textOpen: '<board>',
+      textClose: '</board>',
+      innerItem: [
+        {
+          tag: 'coconut',
+          textOpen: '<coconut />',
+        },
+        {
+          tag: 'coconut',
+          status: ['move'],
+          textOpen: '<coconut />',
+        },
+      ],
+    },
+    {
+      tag: 'peper',
+      textOpen: '<peper />',
+    },
+    {
+      tag: 'dish',
+      id: 'fancy',
+      status: ['move'],
+      textOpen: '<dish id="fancy">',
+      textClose: '</dish>',
+      innerItem: [
+        {
+          tag: 'zucchini',
+          status: ['move'],
+          textOpen: '<zucchini />',
+        },
+      ],
     },
   ],
-  answer: 'orange:first-child',
+  answer: '*:last-child',
 };
 
 export const LEVELS: Record<number, ILevel> = {

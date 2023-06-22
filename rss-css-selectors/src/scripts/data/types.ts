@@ -1,5 +1,5 @@
 // Data Levels types
-type Tag = 'plate' | 'bento' | 'apple' | 'orange' | 'pickle';
+type Tag = 'dish' | 'board' | 'zucchini' | 'coconut' | 'peper';
 type Status = 'small' | 'move' | 'fancy';
 
 export interface ILevelItem {

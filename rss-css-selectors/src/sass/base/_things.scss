@@ -322,8 +322,9 @@ dish > zucchini:last-child {
   top: calc(50% - 70px);
 }
 
+board zucchini,
 dish zucchini {
-  left: calc(50% - 15px);
+  left: calc(50% - 20px);
 }
 
 dish > coconut:last-child,
@@ -381,5 +382,17 @@ board coconut:nth-last-child(2) {
 dish coconut:nth-last-child(3),
 board coconut:nth-last-child(3) {
   top: -65px;
+  z-index: 500;
+}
+
+dish coconut:nth-last-child(2).small,
+board coconut:nth-last-child(2).small {
+  top: -5px;
+  z-index: 400;
+}
+
+dish coconut:nth-last-child(3).small,
+board coconut:nth-last-child(3).small {
+  top: -20px;
   z-index: 500;
 }
