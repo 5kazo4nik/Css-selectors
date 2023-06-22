@@ -59,6 +59,11 @@ export class InputEnter {
   private defineWinOrLoseSelector(selector: string): boolean {
     const table = document.querySelector('.table__surface');
     if (!table) return false;
+    if (selector.includes('.move')) {
+      this.addLoseAnimation([]);
+      return false;
+    }
+
     const existElems = InputEnter.getExistElem(selector, table);
     const isTrueSelector = InputEnter.checkTrueSelector(existElems, table);
 
