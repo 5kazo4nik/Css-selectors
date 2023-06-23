@@ -1,11 +1,13 @@
 import { LEVELS } from '../data/levels';
+import { InputHightlight } from '../view/inputHightlight';
 import { LevelView } from '../view/levelView';
 import { InputEnter } from './input';
 
 export class Help {
   private helpBtn = document.querySelector('.help-btn');
 
-  constructor(private levelViewer: LevelView, private inputEnter: InputEnter) {}
+  // eslint-disable-next-line max-len
+  constructor(private levelViewer: LevelView, private inputEnter: InputEnter, private inputHightlight: InputHightlight) {}
 
   public bindEvents(): void {
     if (this.helpBtn) {
@@ -30,6 +32,7 @@ export class Help {
       if (index < chars.length) {
         setTimeout(addNextChar, 100);
       }
+      this.inputHightlight.colorText();
     };
     addNextChar();
     this.inputEnter.addHelpedLevel(curLevel);

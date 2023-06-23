@@ -1,3 +1,4 @@
+import { InputHightlight } from '../view/inputHightlight';
 import { LevelView } from '../view/levelView';
 
 export class InputEnter {
@@ -6,7 +7,7 @@ export class InputEnter {
   private completedLevels: number[];
   private helpedLevels: number[];
 
-  constructor(private levelView: LevelView) {
+  constructor(private levelView: LevelView, private inputHightlight: InputHightlight) {
     this.completedLevels = InputEnter.initLevel('completedLevels');
     this.helpedLevels = InputEnter.initLevel('helpedLevels');
     this.setLevelsStatus();
@@ -47,6 +48,7 @@ export class InputEnter {
 
     if (isWin) {
       input.value = '';
+      this.inputHightlight.uncolorText();
       if (isFinished) {
         setTimeout(() => {
           LevelView.finishGame();

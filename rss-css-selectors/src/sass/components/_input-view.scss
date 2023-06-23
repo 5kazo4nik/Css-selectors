@@ -80,8 +80,13 @@
   background: rgba(62, 203, 255, 0.3);
   color: #333;
   border: none;
-  width: calc(100% - 44px);
+  width: calc(100% - 39px);
   @extend %input-impulse;
+}
+
+.field__colored-input {
+  position: absolute;
+  width: calc(100% - 39px);
 }
 
 .field__btn {
