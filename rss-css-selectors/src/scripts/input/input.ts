@@ -26,13 +26,17 @@ export class InputEnter {
     if (input) {
       input.addEventListener('keydown', (e) => {
         if (e instanceof KeyboardEvent && e.code === 'Enter') {
+          e.preventDefault();
           this.submitListner.bind(this)();
         }
       });
     }
-    if (input instanceof HTMLInputElement && this.inputView) {
+    if (input instanceof HTMLTextAreaElement && this.inputView) {
       this.inputView.addEventListener('mouseup', () => {
         InputEnter.focusInput.bind(this, input)();
+      });
+      input.addEventListener('input', () => {
+        InputEnter.resizeInput(input);
       });
     }
 
@@ -41,7 +45,7 @@ export class InputEnter {
 
   private submitListner(): void {
     const input = document.querySelector('.field__input');
-    if (!(input instanceof HTMLInputElement)) return;
+    if (!(input instanceof HTMLTextAreaElement)) return;
     const { value } = input;
     const isWin = this.defineWinOrLoseSelector(value);
     const isFinished = this.checkGameFinish();
@@ -49,6 +53,7 @@ export class InputEnter {
     if (isWin) {
       input.value = '';
       this.inputHightlight.uncolorText();
+      InputEnter.resizeInput(input);
       if (isFinished) {
         setTimeout(() => {
           LevelView.finishGame();
@@ -159,7 +164,13 @@ export class InputEnter {
     this.helpedLevels.forEach((lvl) => listLevels[lvl].classList.add('level_helped'));
   }
 
-  private static focusInput(input: HTMLInputElement): void {
+  public static resizeInput(input: HTMLTextAreaElement): void {
+    const textArea = input;
+    textArea.style.height = '21px';
+    textArea.style.height = `${input.scrollHeight}px`;
+  }
+
+  private static focusInput(input: HTMLTextAreaElement): void {
     input.focus();
   }
 }

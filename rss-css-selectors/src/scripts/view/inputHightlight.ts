@@ -13,7 +13,7 @@ export class InputHightlight {
   }
 
   public colorText(): void {
-    if (this.input instanceof HTMLInputElement && this.coloredInput) {
+    if (this.input instanceof HTMLTextAreaElement && this.coloredInput) {
       const selector = this.input.value;
 
       let coloredText = '';

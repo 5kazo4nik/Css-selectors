@@ -17,7 +17,7 @@ export class Help {
 
   private async setTrueSelector(): Promise<void> {
     const input = document.querySelector('.field__input');
-    if (!(input instanceof HTMLInputElement)) return;
+    if (!(input instanceof HTMLTextAreaElement)) return;
     input.value = '';
     const curLevel = this.levelViewer.getCurLevel();
     const trueSelector = LEVELS[curLevel].answer;
@@ -32,6 +32,7 @@ export class Help {
       if (index < chars.length) {
         setTimeout(addNextChar, 100);
       }
+      InputEnter.resizeInput(input);
       this.inputHightlight.colorText();
     };
     addNextChar();

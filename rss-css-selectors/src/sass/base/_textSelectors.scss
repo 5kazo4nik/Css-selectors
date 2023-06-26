@@ -13,3 +13,10 @@
 .tag-selector {
   color: black;
 }
+
+.class-selector,
+.id-selector,
+.attr-selector,
+.tag-selector {
+  word-wrap: break-word;
+}

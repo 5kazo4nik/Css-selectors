@@ -78,15 +78,18 @@
 
 .field__input {
   background: rgba(62, 203, 255, 0.3);
-  color: #333;
+  color: black;
   border: none;
+  outline: none;
   width: calc(100% - 39px);
+  height: 21px;
+  resize: none;
   @extend %input-impulse;
 }
 
 .field__colored-input {
   position: absolute;
-  width: calc(100% - 39px);
+  width: calc(100% - 59px);
 }
 
 .field__btn {
