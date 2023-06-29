@@ -3,7 +3,7 @@ import { ElementCreator } from './abstractCreator';
 
 export class TableElementCreator extends ElementCreator {
   private element: HTMLElement;
-  private static elementsArr: HTMLElement[];
+  private static elementsArr: HTMLElement[] = [];
 
   constructor(private readonly item: ILevelItem) {
     super();

@@ -1,14 +1,14 @@
-function toggleClass(btn: Element, menu: Element): void {
+export function toggleClass(btn: Element, menu: Element): void {
   btn.classList.toggle('burger_active');
   menu.classList.toggle('progress_active');
 }
 
-function removeClass(btn: Element, menu: Element): void {
+export function removeClass(btn: Element, menu: Element): void {
   btn.classList.remove('burger_active');
   menu.classList.remove('progress_active');
 }
 
-function burgerListener(e: Event): void {
+export function burgerListener(e: Event): void {
   const { target } = e;
   const burgerBtn = document.querySelector('.burger');
   const menu = document.querySelector('.progress');
