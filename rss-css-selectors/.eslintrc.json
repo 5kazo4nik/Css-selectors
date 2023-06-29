@@ -1,9 +1,11 @@
 {
   "env": {
     "es6": true,
-    "browser": true
+    "browser": true,
+    "jasmine": true,
+    "jest/globals": true
   },
-  "extends": ["airbnb-base", "airbnb-typescript/base", "plugin:@typescript-eslint/recommended"],
+  "extends": ["airbnb-base", "airbnb-typescript/base", "plugin:@typescript-eslint/recommended", "jest"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
@@ -43,8 +45,5 @@
     "@typescript-eslint/lines-between-class-members": "off",
     "no-console": "warn",
     "prefer-destructuring": "warn"
-  },
-  "eslintConfig": {
-    "ignorePatterns": ["webpack.config.js", "*.test.js"]
   }
 }
