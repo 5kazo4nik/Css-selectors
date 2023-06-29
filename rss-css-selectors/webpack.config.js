@@ -26,7 +26,7 @@ module.exports = (env, options) => {
     watch: !isProduction,
     watchOptions: {
       poll: true,
-      ignored: /(node_modules|__test__)/,
+      ignored: /node_modules/,
     },
     optimization: optimization(),
     entry: './src/scripts/index.ts',

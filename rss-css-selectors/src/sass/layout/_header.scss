@@ -5,10 +5,7 @@
 
 .header__logo {
   opacity: 0.5;
-  transform: scale(0.2);
-  position: absolute;
-  left: 12px;
-  top: 11px;
+  transform: scale(0.2) translate(-120px, -45px);
 }
 
 .header__dish {

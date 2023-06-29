@@ -21,34 +21,24 @@
   width: 100%;
   min-height: 142px;
   min-width: 250px;
-  position: absolute;
 
   padding: 15px 15px 22px 15px;
   display: flex;
-  position: relative;
-  white-space: nowrap;
 }
 
 .table__floor {
   background: #ac741c;
-  width: 100%;
   height: 15px;
-  transform: rotateX(-40deg);
+  transform: rotateX(-30deg);
   transform-origin: top;
-  position: relative;
-  top: -3px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .table__leg {
   width: 24px;
   height: 10px;
   background: #84570f;
-  position: absolute;
+  position: relative;
   top: 15px;
-  &:first-child {
-    left: 0%;
-  }
-  &:last-child {
-    right: 0%;
-  }
 }

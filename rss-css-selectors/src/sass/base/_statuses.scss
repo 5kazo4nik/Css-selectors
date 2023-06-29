@@ -11,7 +11,7 @@
 }
 
 .clean {
-  @extend %clean;
+  @extend %remove;
 }
 
 .fancy::after {
