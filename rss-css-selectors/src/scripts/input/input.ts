@@ -174,7 +174,7 @@ export class InputEnter {
     textArea.style.height = `${input.scrollHeight}px`;
   }
 
-  private static focusInput(input: HTMLTextAreaElement): void {
+  public static focusInput(input: HTMLTextAreaElement): void {
     input.focus();
   }
 }
