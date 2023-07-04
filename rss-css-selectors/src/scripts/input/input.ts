@@ -124,7 +124,11 @@ export class InputEnter {
 
   private static getExistElem(selector: string, table: Element): Element[] {
     if (!selector) return [];
-    return Array.from(table.querySelectorAll(selector));
+    try {
+      return Array.from(table.querySelectorAll(selector));
+    } catch (e) {
+      return [];
+    }
   }
 
   private setLevelsStatus(): void {
