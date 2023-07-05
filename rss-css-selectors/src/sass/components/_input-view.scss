@@ -19,7 +19,6 @@
 
 .input__head,
 .view__head {
-  padding: 10px 15px;
   background: rgba(0, 0, 0, 0.15);
   border-top: solid 1px rgba(255, 255, 255, 0.05);
   border-bottom: solid 1px rgba(255, 255, 255, 0.05);
@@ -33,6 +32,10 @@
 
 .input {
   flex-basis: 50%;
+}
+
+.input__head {
+  padding: 10px 15px;
 }
 
 .input .field__numbers {
@@ -49,6 +52,10 @@
 
 .view {
   flex-basis: 50%;
+}
+
+.view__head {
+  padding: 11px 15px;
 }
 
 .view .field__numbers {
@@ -98,7 +105,6 @@
   padding: 2px 7px 2px 7px;
   color: #666;
   border: solid 1px #999;
-  // border-width: 1px 1px 6px 1px;
   font-size: 9px;
   position: absolute;
   cursor: pointer;
@@ -112,7 +118,7 @@
 }
 
 .field__layout div {
-  margin-left: 20px;
+  margin-left: 12px;
 }
 
 .field__view {

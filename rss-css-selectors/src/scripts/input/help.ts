@@ -28,7 +28,6 @@ export class Help {
     input.disabled = true;
 
     const addNextChar = (): void => {
-      console.log(index >= chars.length - 1);
       if (index >= chars.length - 1) {
         input.disabled = false;
         InputEnter.focusInput(input);
